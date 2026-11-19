@@ -3,12 +3,26 @@
   "name": "com.pnwpitch/pnw-pitch",
   "title": "PNW Pitch",
   "description": "Pacific Northwest youth soccer (WA, OR, ID, MT): club directory, leagues and guides.",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "websiteUrl": "https://pitchnetwork.org/connect-your-ai/#pnw",
   "remotes": [
     {
       "type": "streamable-http",
       "url": "https://pnwpitch.com/wp-json/pitch/mcp"
     }
-  ]
+  ],
+  "icons": [
+    {
+      "src": "https://pnwpitch.com/apple-touch-icon.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "180x180"
+      ]
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/Creed5252/wordpress-directory-mcp",
+    "source": "github",
+    "subfolder": "plugin/pn-agent-feed"
+  }
 }

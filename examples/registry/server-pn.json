@@ -3,12 +3,26 @@
   "name": "org.pitchnetwork/pitch-network",
   "title": "The Pitch Network",
   "description": "Youth soccer clubs across the western US: search 1,100+ clubs by area, tier, league and gender.",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "websiteUrl": "https://pitchnetwork.org/connect-your-ai/",
   "remotes": [
     {
       "type": "streamable-http",
       "url": "https://pitchnetwork.org/wp-json/pitch/mcp"
     }
-  ]
+  ],
+  "icons": [
+    {
+      "src": "https://pitchnetwork.org/icon-512.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/Creed5252/wordpress-directory-mcp",
+    "source": "github",
+    "subfolder": "plugin/pn-agent-feed"
+  }
 }

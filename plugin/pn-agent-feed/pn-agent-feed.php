@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PN_FEED_VERSION', '1.1.1' );
+define( 'PN_FEED_VERSION', '1.1.2' );
 
 /* Safety: the adapter's default server can run any ability for a logged-in user. Off. */
 add_filter( 'mcp_adapter_create_default_server', '__return_false' );
@@ -436,7 +436,7 @@ add_action( 'wp_abilities_api_init', function () {
 	$about    = ( 'network' === $cfg['source'] ) ? 'About The Pitch Network' : "About $site and The Pitch Network";
 	$public  = '__return_true';
 	$ro      = array( 'annotations' => array( 'readonly' => true, 'destructive' => false, 'idempotent' => true ) );
-	$limit   = array( 'type' => 'integer', 'minimum' => 1, 'maximum' => 25, 'description' => 'Max results (default 10).' );
+	$limit   = array( 'type' => 'integer', 'minimum' => 1, 'maximum' => 25, 'description' => 'Most results to return, from 1 to 25. Default 10. The response also gives the total number of matches.' );
 	$unit    = 'county' === $cfg['unit'] ? 'county or city' : 'region, county or city';
 
 	wp_register_ability( 'pitch/find-clubs', array(
@@ -446,11 +446,11 @@ add_action( 'wp_abilities_api_init', function () {
 		'input_schema'        => array(
 			'type'                 => 'object',
 			'properties'           => array(
-				'query'  => array( 'type' => 'string', 'maxLength' => 120, 'description' => 'Free-text words, such as a club name.' ),
-				'area'   => array( 'type' => 'string', 'maxLength' => 80, 'description' => "A $unit." ),
-				'tier'   => array( 'type' => 'string', 'enum' => array( 'Elite', 'Competitive', 'Recreational' ) ),
-				'league' => array( 'type' => 'string', 'maxLength' => 60 ),
-				'gender' => array( 'type' => 'string', 'enum' => array( 'Boys', 'Girls' ) ),
+				'query'  => array( 'type' => 'string', 'maxLength' => 120, 'description' => 'Words to look for in the club name, county, city, region, tier and leagues, such as "Surf" or "Albion". Every word must match. Leave out to list all clubs that fit the other filters.' ),
+				'area'   => array( 'type' => 'string', 'maxLength' => 80, 'description' => "Where to look: a $unit, county, city or US state name, such as \"San Diego\", \"Boise\" or \"Colorado\". Partial names match. See list-areas for the names this directory uses." ),
+				'tier'   => array( 'type' => 'string', 'enum' => array( 'Elite', 'Competitive', 'Recreational' ), 'description' => 'Level of play. Elite: national-league clubs such as ECNL, MLS NEXT or Girls Academy. Competitive: travel and club soccer. Recreational: community and AYSO-style programs. A club with teams at more than one level matches each of them.' ),
+				'league' => array( 'type' => 'string', 'maxLength' => 60, 'description' => 'A league the club plays in, such as "ECNL", "ECNL RL", "MLS NEXT", "Girls Academy" or "N1L". Partial names match.' ),
+				'gender' => array( 'type' => 'string', 'enum' => array( 'Boys', 'Girls' ), 'description' => 'Only clubs with boys or girls programs. Clubs with both always match.' ),
 				'limit'  => $limit,
 			),
 			'additionalProperties' => false,
@@ -513,7 +513,7 @@ add_action( 'wp_abilities_api_init', function () {
 		'input_schema'        => array(
 			'type'                 => 'object',
 			'properties'           => array(
-				'query' => array( 'type' => 'string', 'minLength' => 2, 'maxLength' => 200 ),
+				'query' => array( 'type' => 'string', 'minLength' => 2, 'maxLength' => 200, 'description' => 'Words to search for in published guides and articles, such as "tryouts", "Surf Cup" or "club soccer cost".' ),
 				'limit' => $limit,
 			),
 			'required'             => array( 'query' ),
@@ -538,8 +538,8 @@ add_action( 'wp_abilities_api_init', function () {
 		'input_schema'        => array(
 			'type'                 => 'object',
 			'properties'           => array(
-				'url_or_slug' => array( 'type' => 'string', 'minLength' => 2, 'maxLength' => 300 ),
-				'offset'      => array( 'type' => 'integer', 'minimum' => 0 ),
+				'url_or_slug' => array( 'type' => 'string', 'minLength' => 2, 'maxLength' => 300, 'description' => 'The full page URL from a search result, or just its slug, such as "tryouts".' ),
+				'offset'      => array( 'type' => 'integer', 'minimum' => 0, 'description' => 'Where to resume a long page. Pass the next_offset value from the previous response. Default 0.' ),
 			),
 			'required'             => array( 'url_or_slug' ),
 			'additionalProperties' => false,
@@ -578,7 +578,7 @@ add_action( 'wp_abilities_api_init', function () {
 		'input_schema'        => array(
 			'type'                 => 'object',
 			'properties'           => array(
-				'since' => array( 'type' => 'string', 'description' => 'Date, YYYY-MM-DD.' ),
+				'since' => array( 'type' => 'string', 'description' => 'Only items published on or after this date, as YYYY-MM-DD. Default: the last 30 days.' ),
 				'limit' => $limit,
 			),
 			'additionalProperties' => false,

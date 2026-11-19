@@ -1,6 +1,8 @@
 # Changelog
 
-## Unreleased (2026-11-19)
+## 1.1.2 (2026-11-19)
+- Every tool input now has a plain description (what it matches, examples, defaults).
+- Registry listings carry an icon and a link to this repository.
 - Tool labels on the network server: no more "the The Pitch Network" or "About The Pitch Network and The Pitch Network".
 - Design note rewritten from Colin Reed's dictation (draft, awaiting his read-through).
 

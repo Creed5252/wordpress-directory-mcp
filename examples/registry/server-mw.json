@@ -3,12 +3,26 @@
   "name": "com.mountainwestpitch/mountain-west-pitch",
   "title": "Mountain West Pitch",
   "description": "Mountain West youth soccer (CO, UT, WY, NV, MT): club directory, leagues and guides.",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "websiteUrl": "https://pitchnetwork.org/connect-your-ai/#mw",
   "remotes": [
     {
       "type": "streamable-http",
       "url": "https://mountainwestpitch.com/wp-json/pitch/mcp"
     }
-  ]
+  ],
+  "icons": [
+    {
+      "src": "https://mountainwestpitch.com/apple-touch-icon.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "180x180"
+      ]
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/Creed5252/wordpress-directory-mcp",
+    "source": "github",
+    "subfolder": "plugin/pn-agent-feed"
+  }
 }
