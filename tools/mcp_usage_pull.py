@@ -7,7 +7,7 @@ Usage: python3 mcp_usage_pull.py [--days N] [--report]
 - --report prints a short summary: totals, apps that connected, top tools, and searches that found nothing.
 Test traffic from Sterling ("sterling-test" client) is excluded from every count.
 Data comes from `wp pn-feed stats` on each server over wp.sh (SSH), so no HTTP edge and no captcha.
-Added 2026-11-19 (Creed: "we need a way to track how many users are actually utilizing this").
+Added 2026-11-19 (Colin Reed: "we need a way to track how many users are actually utilizing this").
 """
 import csv, json, os, subprocess, sys, collections
 

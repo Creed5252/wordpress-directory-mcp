@@ -432,6 +432,8 @@ add_action( 'wp_abilities_api_categories_init', function () {
 add_action( 'wp_abilities_api_init', function () {
 	$cfg     = pn_feed_site();
 	$site    = $cfg['name'];
+	$the_site = ( 0 === strpos( $site, 'The ' ) ) ? $site : 'the ' . $site; // avoids "the The Pitch Network"
+	$about    = ( 'network' === $cfg['source'] ) ? 'About The Pitch Network' : "About $site and The Pitch Network";
 	$public  = '__return_true';
 	$ro      = array( 'annotations' => array( 'readonly' => true, 'destructive' => false, 'idempotent' => true ) );
 	$limit   = array( 'type' => 'integer', 'minimum' => 1, 'maximum' => 25, 'description' => 'Max results (default 10).' );
@@ -439,7 +441,7 @@ add_action( 'wp_abilities_api_init', function () {
 
 	wp_register_ability( 'pitch/find-clubs', array(
 		'label'               => "Find youth soccer clubs ($site)",
-		'description'         => "Search the $site youth soccer club directory for {$cfg['area']}. Filter by $unit, tier (Elite, Competitive, Recreational), league (for example ECNL, MLS NEXT, Girls Academy), gender, or free-text words. Returns each club's location, tier, leagues, website and verification date. Use pitch/list-areas for valid area names.",
+		'description'         => "Search $the_site youth soccer club directory for {$cfg['area']}. Filter by $unit, tier (Elite, Competitive, Recreational), league (for example ECNL, MLS NEXT, Girls Academy), gender, or free-text words. Returns each club's location, tier, leagues, website and verification date. Use pitch/list-areas for valid area names.",
 		'category'            => 'pitch-content',
 		'input_schema'        => array(
 			'type'                 => 'object',
@@ -477,7 +479,7 @@ add_action( 'wp_abilities_api_init', function () {
 
 	wp_register_ability( 'pitch/list-areas', array(
 		'label'               => "List areas covered ($site)",
-		'description'         => "The areas the $site club directory covers ({$cfg['area']}), with the number of listed clubs in each. Use these names with pitch/find-clubs.",
+		'description'         => "The areas $the_site club directory covers ({$cfg['area']}), with the number of listed clubs in each. Use these names with pitch/find-clubs.",
 		'category'            => 'pitch-content',
 		'input_schema'        => array( 'type' => 'object', 'properties' => array(), 'additionalProperties' => false ),
 		'execute_callback'    => function () {
@@ -601,7 +603,7 @@ add_action( 'wp_abilities_api_init', function () {
 	) );
 
 	wp_register_ability( 'pitch/about', array(
-		'label'               => "About $site and The Pitch Network",
+		'label'               => $about,
 		'description'         => "What $site covers, the other Pitch Network regional sites, and how to cite it.",
 		'category'            => 'pitch-content',
 		'input_schema'        => array( 'type' => 'object', 'properties' => array(), 'additionalProperties' => false ),

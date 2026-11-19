@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased (2026-11-19)
+- Tool labels on the network server: no more "the The Pitch Network" or "About The Pitch Network and The Pitch Network".
+- Design note rewritten from Colin Reed's dictation (draft, awaiting his read-through).
+
 ## 1.1.1 (2026-11-19)
 - `find-clubs` area filter understands US state names ("Colorado" matches "Denver, CO").
 - Session log records each connection once.
