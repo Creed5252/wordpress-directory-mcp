@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.pnwpitch/pnw-pitch",
+  "title": "PNW Pitch",
+  "description": "Pacific Northwest youth soccer (WA, OR, ID, MT): club directory, leagues and guides.",
+  "version": "1.1.1",
+  "websiteUrl": "https://pitchnetwork.org/connect-your-ai/#pnw",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://pnwpitch.com/wp-json/pitch/mcp"
+    }
+  ]
+}

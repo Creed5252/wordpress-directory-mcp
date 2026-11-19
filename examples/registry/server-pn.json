@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "org.pitchnetwork/pitch-network",
+  "title": "The Pitch Network",
+  "description": "Youth soccer clubs across the western US: search 1,100+ clubs by area, tier, league and gender.",
+  "version": "1.1.1",
+  "websiteUrl": "https://pitchnetwork.org/connect-your-ai/",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://pitchnetwork.org/wp-json/pitch/mcp"
+    }
+  ]
+}

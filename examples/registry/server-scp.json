@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.socalpitch/socal-pitch",
+  "title": "SoCal Pitch",
+  "description": "Southern California youth soccer: club directory, tryouts, leagues, tournaments and guides.",
+  "version": "1.1.1",
+  "websiteUrl": "https://pitchnetwork.org/connect-your-ai/#scp",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://socalpitch.com/wp-json/pitch/mcp"
+    }
+  ]
+}

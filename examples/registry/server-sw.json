@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.southwestpitch/southwest-pitch",
+  "title": "Southwest Pitch",
+  "description": "Southwest youth soccer (AZ, NM, southern NV, El Paso): club directory, leagues and guides.",
+  "version": "1.1.1",
+  "websiteUrl": "https://pitchnetwork.org/connect-your-ai/#sw",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://southwestpitch.com/wp-json/pitch/mcp"
+    }
+  ]
+}

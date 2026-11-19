@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.mountainwestpitch/mountain-west-pitch",
+  "title": "Mountain West Pitch",
+  "description": "Mountain West youth soccer (CO, UT, WY, NV, MT): club directory, leagues and guides.",
+  "version": "1.1.1",
+  "websiteUrl": "https://pitchnetwork.org/connect-your-ai/#mw",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mountainwestpitch.com/wp-json/pitch/mcp"
+    }
+  ]
+}
