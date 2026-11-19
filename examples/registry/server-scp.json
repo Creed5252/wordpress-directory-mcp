@@ -3,12 +3,26 @@
   "name": "com.socalpitch/socal-pitch",
   "title": "SoCal Pitch",
   "description": "Southern California youth soccer: club directory, tryouts, leagues, tournaments and guides.",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "websiteUrl": "https://pitchnetwork.org/connect-your-ai/#scp",
   "remotes": [
     {
       "type": "streamable-http",
       "url": "https://socalpitch.com/wp-json/pitch/mcp"
     }
-  ]
+  ],
+  "icons": [
+    {
+      "src": "https://socalpitch.com/apple-touch-icon.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "180x180"
+      ]
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/Creed5252/wordpress-directory-mcp",
+    "source": "github",
+    "subfolder": "plugin/pn-agent-feed"
+  }
 }
